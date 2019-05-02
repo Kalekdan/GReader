@@ -1,18 +1,22 @@
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 public class GReaderMain {
-    private static final String API_KEY = "9506AC4EFE548781359C59E8280406D6";
     private static String STEAMID = "";
 
     public static void main(String[] args) {
-        STEAMID = handleArgs(args);
-        PrimaryWindow window = new PrimaryWindow(400, 500);
-        URLReader reader = new URLReader(API_KEY, STEAMID);
-        SteamXMLHandler sHandler = new SteamXMLHandler(reader.ReadFromURL(reader.getActiveURL()));
-        GamesTable gTable = sHandler.ToGTable(sHandler.parse());
+        PrimaryWindow menuWindow = new PrimaryWindow(400,400);
+        AddMainMenuButtons(menuWindow);
 
-        window.add(new JScrollPane(gTable));
-        window.setVisible(true);
+
+        SteamReader steamReader = new SteamReader(handleArgs(args));
+    }
+
+    private static void AddMainMenuButtons(PrimaryWindow menuWindow) {
+        JButton steamBtn = new JButton("Calculate Steam Data");
+        JButton closeBtn = new JButton("close");
+
+        menuWindow.add(steamBtn);
+        menuWindow.add(closeBtn);
     }
 
     /**
