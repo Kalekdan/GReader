@@ -1,4 +1,4 @@
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 public class GReaderMain {
     private static final String API_KEY = "9506AC4EFE548781359C59E8280406D6";
@@ -12,6 +12,7 @@ public class GReaderMain {
         GamesTable gTable = sHandler.ToGTable(sHandler.parse());
 
         window.add(new JScrollPane(gTable));
+        window.setVisible(true);
     }
 
     /**

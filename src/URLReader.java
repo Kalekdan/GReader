@@ -1,5 +1,6 @@
-import java.net.*;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class URLReader {
     private static final String[] URL_FRAMEWORK = {"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=", "&steamid=", "&include_appinfo=1&format=xml"};
